@@ -4,19 +4,15 @@ import { wait } from './utils/await'
 
 export const TALoop = async (numberOfPots: number) => {
     try {
-        // Setup delays
         console.log('running')
         robot.setKeyboardDelay(2)
         robot.setMouseDelay(1)
 
-        // Open menu
         robot.keyTap('m')
 
-        // Return to home
         robot.moveMouseSmooth(Mouse.home.x, Mouse.home.y)
         robot.mouseClick()
 
-        // Move to buy location
         robot.moveMouseSmooth(Mouse.moveHome.x, Mouse.moveHome.y)
         robot.mouseClick()
         await wait(1000)
@@ -26,7 +22,6 @@ export const TALoop = async (numberOfPots: number) => {
         robot.mouseClick()
         await wait(10000)
         robot.mouseClick()
-        // Buy pots
 
         robot.moveMouseSmooth(Mouse.addHundred.x, Mouse.addHundred.y)
         for (let i = 0; i < numberOfPots; i++) {
